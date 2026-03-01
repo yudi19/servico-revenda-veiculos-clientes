@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '4.0.3'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.servico.revenda'
+version = '0.0.1-SNAPSHOT'
+description = 'Microserviço de Clientes - Plataforma Revenda'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring Boot
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// Jackson
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+	// Database
+	runtimeOnly 'com.h2database:h2'
+	implementation 'org.springframework.boot:spring-boot-h2console'
+
+	// AWS SDK
+	implementation platform('software.amazon.awssdk:bom:2.25.16')
+	implementation 'software.amazon.awssdk:sqs'
+	implementation 'software.amazon.awssdk:sfn'
+	implementation 'software.amazon.awssdk:kms'
+
+	// Test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
