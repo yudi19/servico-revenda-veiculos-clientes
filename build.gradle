@@ -59,8 +59,8 @@ jacocoTestReport {
 
 sonarqube {
 	properties {
-		property 'sonar.projectKey', 'yudi19_servico-revenda-veiculos-clientes'
-		property 'sonar.organization', 'yudi19'
+		property 'sonar.projectKey', 'yudi19key_servico-revenda-veiculos-clientes'
+		property 'sonar.organization', 'yudi19key'
 		property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/test/jacocoTestReport.xml'
 	}
 }
